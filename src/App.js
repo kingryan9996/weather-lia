@@ -8,6 +8,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 function App() {
   const [weather, setWeather] = useState();
   const [loading, setLoading] = useState(false);
+  const [elIdx, setElIdx] = useState(0);
+
   const cities = ["current location", "paris", "new york", "tokyo", "seoul"];
 
   const getCurrentLocation = () => {
@@ -23,13 +25,13 @@ function App() {
   };
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
+    setLoading(true);
     let APIkey = "f07758540fae0603dbb22c2388dd2bdd";
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=metric`;
     // units=metric붙여주면 온도를 섭씨로 api를 보내준다.
-    setLoading(true);
     let response = await fetch(url);
     let data = await response.json();
-    console.log(data);
+    // console.log(data);
     // console.log(data.weather);
     // console.log(data.name);
 
@@ -39,8 +41,15 @@ function App() {
     // console.log(state.weather[0].main, "이게");
   };
 
+  const active = (e) => {
+    console.log(e.target, "타겟");
+    e.target.classList.toggle("active");
+  };
+
   useEffect(() => {
+    setLoading(true);
     getCurrentLocation();
+    // weather && active();
   }, []);
 
   return (
@@ -70,6 +79,8 @@ function App() {
             setWeather={setWeather}
             cities={cities}
             setLoading={setLoading}
+            elIdx={elIdx}
+            setElIdx={setElIdx}
           />
         </div>
       )}

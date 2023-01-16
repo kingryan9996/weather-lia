@@ -8,13 +8,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 .App > div {
   width: 700px;
 }
 
-.WeatherBox{
+.WeatherBox {
+  color: #fff;
+  font-weight: 600;
+  line-height: 3.5rem;
   height: 250px;
   border: 2px solid #fff;
   border-radius: 15px;
@@ -25,9 +28,18 @@
   justify-content: center;
   align-items: center;
 }
+.WeatherBox .location {
+  font-size: 1.7rem;
+}
 
+.WeatherBox h2 {
+  font-size: 2.2rem;
+}
+.WeatherBox h3 {
+  font-size: 2rem;
+}
 
-.locationBtn{
+.locationBtn {
   /* width: 500px; */
   height: 80px;
   background-color: #000;
@@ -35,13 +47,17 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 0 50px;
 }
 
 .locationBtn button {
   border: 1px solid yellow;
   color: #000;
+  text-transform: capitalize;
+  font-weight: 500;
 }
 
-.locationBtn button .active {
+.locationBtn .btn.active {
   background-color: #000;
+  color: #fff;
 }
